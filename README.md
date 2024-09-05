@@ -15,8 +15,9 @@ This Spring Boot application provides an API to generate synthetic patient data 
 3. Set up your Google Cloud credentials.
 4. Configure the `BUCKET_NAME` in the `ApiController` class.
 5. Adjust the `LOCAL_OUTPUT_DIR` if needed.
-6. Build the application using `./gradlew build`
-7. Run the application using `./gradlew bootRun`
+6. In your terminal, navigate to the `api` directory.
+7. Build the application using `./gradlew build`
+8. Run the application using `./gradlew bootRun`
 
 ### API Endpoints
 
