@@ -34,11 +34,11 @@ public class App {
 class ApiController {
 
     private static final String BUCKET_NAME = "raw-ehr-bucket";
-    private static final String LOCAL_OUTPUT_DIR = "./synthea_output";
+    private static final String LOCAL_OUTPUT_DIR = "./data_output";
 
     @GetMapping("/")
     public String index() {
-        return "Welcome to the Synthea API!";
+        return "Synthetic EHR Cloud Uploader";
     }
 
     @GetMapping("/generate-patients")
@@ -55,7 +55,7 @@ class ApiController {
         Generator generator = new Generator();
         generator.run();
 
-        System.out.println("generator finished, uploading to cloud.");
+        System.out.println("generator finished, uploading to Cloud Storage.");
 
         try {
             uploadDirectoryContents(BUCKET_NAME, Paths.get(LOCAL_OUTPUT_DIR));
@@ -66,7 +66,11 @@ class ApiController {
             e.printStackTrace();
             return "Error occurred while uploading files: " + e.getMessage();
         }
-        return "Generated " + population + " patients and uploaded to GCS!";
+        return (
+            "Generated " +
+            population +
+            " patients and uploaded to Cloud Storage!"
+        );
     }
 
     private void uploadDirectoryContents(
