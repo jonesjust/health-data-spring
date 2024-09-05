@@ -16,6 +16,8 @@ import org.mitre.synthea.engine.Generator;
 import org.mitre.synthea.helpers.Config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,13 +48,20 @@ class ApiController {
             defaultValue = "10"
         ) String population
     ) {
+        System.out.println("starting generator.");
+
         Config.set("generate.default_population", population);
         Config.set("exporter.baseDirectory", LOCAL_OUTPUT_DIR);
         Generator generator = new Generator();
         generator.run();
+
+        System.out.println("generator finished, uploading to cloud.");
+
         try {
             uploadDirectoryContents(BUCKET_NAME, Paths.get(LOCAL_OUTPUT_DIR));
+            System.out.println("uploaded to cloud.");
             deleteLocalFiles(LOCAL_OUTPUT_DIR);
+            System.out.println("deleted local files, process complete.");
         } catch (IOException e) {
             e.printStackTrace();
             return "Error occurred while uploading files: " + e.getMessage();
