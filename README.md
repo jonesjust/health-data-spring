@@ -1,4 +1,4 @@
-# Synthetic EHR Cloud Uploader
+# Synthetic EHR Generator
 
 This Spring Boot application provides an API to generate synthetic patient data using Synthea and automatically uploads it to Google Cloud Storage.
 
