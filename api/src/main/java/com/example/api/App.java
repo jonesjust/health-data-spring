@@ -36,7 +36,7 @@ class ApiController {
 
     @GetMapping("/")
     public String index() {
-        return "Synthetic EHR Cloud Uploader";
+        return "Welcome, let's generate some data!";
     }
 
     @GetMapping("/generate-patients")

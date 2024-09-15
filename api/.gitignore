@@ -36,5 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-/synthea_output
+/data_output
 .DS_Store
