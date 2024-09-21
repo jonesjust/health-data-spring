@@ -23,8 +23,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.mitre.synthea:synthea:3.2.0'
-	implementation platform('com.google.cloud:libraries-bom:26.45.0')
-    implementation 'com.google.cloud:google-cloud-storage'
 }
 
 tasks.named('test') {
