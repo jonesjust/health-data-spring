@@ -13,7 +13,7 @@ Example usage:
 http://localhost:8080/generate-patients?population=100
 ```
 
-This will generate 100 synthetic patients and output to the `LOCAL_OUTPUT_DIR`.
+This will generate 100 synthetic patient records and save the FHIR data to the `LOCAL_OUTPUT_DIR`.
 
 If you find this project useful, consider buying me a coffee.
 
