@@ -39,6 +39,7 @@ class ApiController {
             Config.set("generate.default_population", population);
             Config.set("generate.only_alive_patients", "true");
             Config.set("exporter.fhir.use_us_core_ig", "true");
+            Config.set("exporter.fhir.us_core_version", "4.1.0");
             Config.set("exporter.baseDirectory", LOCAL_OUTPUT_DIR);
 
             Generator generator = new Generator();
