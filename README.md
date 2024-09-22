@@ -1,28 +1,11 @@
-# Synthetic EHR Generator
+# Synthetic FHIR Generator
 
-This Spring Boot application provides an API to generate synthetic patient data using Synthea and automatically uploads it to Google Cloud Storage.
-
-## Features
-
-- Generate synthetic patient data with customizable population size
-- Automatically upload generated data to Google Cloud Storage
-- Clean up local files after successful upload
-
-## How to Use
-
-1. Fork this repository
-2. Clone your forked repository to your local machine.
-3. Set up your Google Cloud credentials.
-4. Configure the `BUCKET_NAME` in the `ApiController` class.
-5. Adjust the `LOCAL_OUTPUT_DIR` if needed.
-6. In your terminal, navigate to the `api` directory.
-7. Build the application using `./gradlew build`
-8. Run the application using `./gradlew bootRun`
+This Spring Boot application provides an API to generate synthetic patient data using [Synthea](https://github.com/synthetichealth/synthea).
 
 ### API Endpoints
 
 - `GET /`: Welcome message
-- `GET /generate-patients`: Generate patients and upload to GCS
+- `GET /generate-patients`: Generate patients
   - Query parameter: `population` (default: 10)
 
 Example usage:
@@ -30,7 +13,7 @@ Example usage:
 http://localhost:8080/generate-patients?population=100
 ```
 
-This will generate 100 synthetic patients and upload the data to your specified GCS bucket.
+This will generate 100 synthetic patients and output to the `LOCAL_OUTPUT_DIR`.
 
 If you find this project useful, consider buying me a coffee.
 
