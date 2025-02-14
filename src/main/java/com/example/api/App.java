@@ -41,6 +41,8 @@ class ApiController {
             Config.set("exporter.fhir.use_us_core_ig", "true");
             Config.set("exporter.fhir.us_core_version", "4.1.0");
             Config.set("exporter.baseDirectory", LOCAL_OUTPUT_DIR);
+            // output format ndjson instead of json
+            Config.set("exporter.fhir.bulk_data", "true");
 
             Generator generator = new Generator();
             generator.run();
